@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <script src="scripts/dashboard.js" defer></script>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Dashboard - Expense Tracker</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        
+        <div class="logo">
+          <i class="fas fa-wallet logo-icon"></i>
+          Expense <span>Tracker</span>
+        </div>
+        <ul class="nav-links">
+          <li class="active">
+            <i class="fas fa-home"></i><a href="dashboard.html">Overview</a>
+          </li>
+          <li>
+            <i class="fas fa-list"></i
+            ><a href="transactions.html">Transactions</a>
+          </li>
+          <li>
+            <i class="fas fa-file-alt"></i
+            ><a href="reports.html">Generate Statement</a>
+          </li>
+          <li>
+            <i class="fas fa-cog"></i><a href="settings.html">Settings</a>
+          </li>
+        </ul>
+        <div class="logout">
+          <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="menu-icon-container">
+      <div class="icons">
+        <i class="fas fa-wallet"></i><i class="fa fa-bars" id="menu-icon"></i>
+      </div>
+    </div>
+    <main>
+      <div class="page-title-container">
+        <h1 class="page-title"></h1>
+        <div class="profile-button"></div>
+      </div>
+      <p>Here's what's new with your expenses!</p>
+
+      <div class="dashboard-container">
+        <div class="total-balance-container">
+          <div class="balance-icon green">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <div class="balance-text">
+            <h3>Total Balance</h3>
+            <h1>₦85,000</h1>
+          </div>
+        </div>
+        <div class="total-income-container">
+          <div class="income-icon green">
+            <i class="fas fa-arrow-up"></i>
+          </div>
+          <div class="balance-text">
+            <h3>Total Income</h3>
+            <h1>₦150,000</h1>
+          </div>
+        </div>
+        <div class="total-expense-container">
+          <div class="expense-icon red">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+          <div class="balance-text">
+            <h3>Total Expense</h3>
+            <h1>₦65,000</h1>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

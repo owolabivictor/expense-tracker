@@ -63,5 +63,3 @@ function showSuccess() {
     loginConfirmation.style.top = "-100%";
   }, 2000);
 }
-
-localStorage.removeItem("user");
