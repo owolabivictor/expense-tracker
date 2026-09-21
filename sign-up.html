@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/login-signUp.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+
+    <script src="scripts/sign-up.js" defer></script>
+    <title>Expense Tracker - Sign Up</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Create Account</h1>
+      <div class="form-container">
+        <form>
+          <div class="input-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required />
+          </div>
+
+          <div class="input-container">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+
+          <div class="input-container">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required />
+          </div>
+
+          <div class="input-container">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" required />
+            <small class="password-match-error">Passwords do not match</small>
+          </div>
+
+          <button class="sign-up-btn" id="sign-up-button">Sign Up</button>
+        </form>
+      </div>
+
+      <small>Already have an account? <a href="index.html">Sign in</a> </small>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-bg: rgb(8, 2, 34);
+  --white: #fff;
+  --black: #000;
+  --text-color1: #585858;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgb(5, 69, 73), var(--primary-bg));
+  color: var(--black);
+}
+
+.container {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 360px;
+}
+
+.title {
+  margin-bottom: 30px;
+  color: var(--primary-bg);
+  text-align: center;
+  position: relative;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, purple, blue);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #d3d2d2;
+  width: 100%;
+  font-size: 14px;
+  color: #292929;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #1255ec;
+}
+
+.login-btn,
+.sign-up-btn {
+  width: 100%;
+  background: linear-gradient(135deg, rgb(5, 69, 73), var(--primary-bg));
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--white);
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login-btn:hover,
+.sign-up-btn:hover {
+  background-color: #53a553;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:active,
+.sign-up-btn:active {
+  transform: translateY(0);
+}
+
+small {
+  border-top: 1px solid #d3d2d2;
+  display: block;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* Error Message Styles */
+.error-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: none;
+}
+
+.cancel-container {
+  background-color: #f0f0f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cancel-container i {
+  color: #f40d15;
+  font-size: 20px;
+}
+
+.error-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.error-button {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-title {
+  font-size: 25px;
+}
+
+.sign-up {
+  background: linear-gradient(135deg, rgb(5, 69, 73), var(--primary-bg));
+  color: var(--white);
+  transition: all 0.3s;
+}
+
+.sign-up:hover {
+  background-color: #4a944a;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancel {
+  background-color: #d30c13;
+  color: var(--white);
+  transition: all 0.3s;
+}
+
+.cancel:hover {
+  background-color: #b30a11;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sign-up:active,
+.cancel:active {
+  transform: translateY(0);
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(8, 2, 34, 0.7);
+  display: none;
+  filter: blur(50px);
+  z-index: -1;
+}
+
+/* Login Confirmation */
+.login-confirmation {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 10px;
+  transition: top 1s ease-in-out;
+}
+
+.login-confirmation i {
+  color: var(--white);
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: #53a553;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.password-match-error {
+  padding-top: 0;
+  text-align: start;
+  color: #d30c13;
+  visibility: hidden;
+}
+
+.mismatch-password {
+  border-color: #d30c13;
+}
+
+/* Toggle classes */
+.active {
+  display: block;
+}
+
+.hierarchy {
+  z-index: -2;
+}

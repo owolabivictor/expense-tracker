@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/login-signUp.css" />
+    <script src="scripts/login.js" defer></script>
+
+    <title>Expense Tracker - Login</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Expense Tracker</h1>
+      <div class="form-container">
+        <form>
+          <div class="input-container">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+
+          <div class="input-container">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required />
+          </div>
+
+          <button class="login-btn" id="login-button">Login</button>
+        </form>
+      </div>
+
+      <small> Don't have an account? <a href="sign-up.html">Sign Up</a> </small>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="error-container">
+      <div class="cancel-container">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+
+      <h1 class="error-title">Account not found</h1>
+      <div class="error-button-container">
+        <button class="cancel error-button">Cancel</button>
+        <button class="sign-up error-button">Sign Up</button>
+      </div>
+    </div>
+
+    <p class="login-confirmation">
+      <i class="fa-solid fa-check"></i> Login successful!
+    </p>
+  </body>
+</html>
