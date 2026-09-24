@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
 
-    <script src="scripts/sign-up.js" defer></script>
+    <script type="module" src="scripts/sign-up.js" defer></script>
     <title>Expense Tracker - Sign Up</title>
   </head>
   <body>
@@ -23,9 +23,10 @@
             <input type="text" id="username" required />
           </div>
 
-          <div class="input-container">
+          <div class="input-container email">
             <label for="email">Email:</label>
             <input type="email" id="email" required />
+            <small class="input-error-message">Email already in use</small>
           </div>
 
           <div class="input-container">
@@ -33,10 +34,10 @@
             <input type="password" id="password" required />
           </div>
 
-          <div class="input-container">
+          <div class="input-container confirm-password">
             <label for="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" required />
-            <small class="password-match-error">Passwords do not match</small>
+            <small class="input-error-message">Passwords do not match</small>
           </div>
 
           <button class="sign-up-btn" id="sign-up-button">Sign Up</button>

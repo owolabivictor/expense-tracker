@@ -6,43 +6,38 @@ const loginButton = document.getElementById("login-button");
 const errorContainer = document.querySelector(".error-container");
 const overlay = document.querySelector(".overlay");
 const cancelButton = document.querySelector(".cancel");
-const signUpButton = document.querySelector(".sign-up");
+const signUpButton = document.querySelector(".sign-up-alert");
 const loginConfirmation = document.querySelector(".login-confirmation");
 
-const userData = JSON.parse(localStorage.getItem("user"));
+const users = JSON.parse(localStorage.getItem("users"));
+
+let currentUserEmail;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (!userData) {
+
+  const hasAccount = confirmLoginCredentials(
+    email.value.trim(),
+    password.value.trim(),
+  );
+
+  if (hasAccount) {
+    showSuccess();
+    currentUserEmail = email.value.trim();
+    localStorage.setItem("currentUserEmail", currentUserEmail);
+    loginButton.disabled = true;
+    loginButton.textContent = "Logging in...";
+    loginButton.style.opacity = "0.8";
+    setTimeout(() => {
+      loginButton.style.opacity = "1";
+      loginButton.disabled = false;
+      loginButton.textContent = "Login";
+      window.location.href = "dashboard.html";
+    }, 2000);
+  } else {
     errorContainer.classList.toggle("active");
     overlay.classList.toggle("active");
     container.classList.toggle("hierarchy");
-    return;
-  } else {
-    const validEmail = email.value.trim() === userData.email;
-    const validPassword = password.value.trim() === userData.password;
-
-    email.value = "";
-    password.value = "";
-
-    const hasAccount = validEmail && validPassword;
-
-    if (hasAccount) {
-      showSuccess();
-      loginButton.disabled = true;
-      loginButton.textContent = "Logging in...";
-      loginButton.style.opacity = "0.6";
-      setTimeout(() => {
-        loginButton.style.opacity = "1";
-        loginButton.disabled = false;
-        loginButton.textContent = "Login";
-        window.location.href = "dashboard.html";
-      }, 2000);
-    } else {
-      errorContainer.classList.toggle("active");
-      overlay.classList.toggle("active");
-      container.classList.toggle("hierarchy");
-    }
   }
 });
 
@@ -62,4 +57,16 @@ function showSuccess() {
   setTimeout(() => {
     loginConfirmation.style.top = "-100%";
   }, 2000);
+}
+
+function confirmLoginCredentials(userEmail, userPassword) {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === userEmail && users[i].password === userPassword) {
+      return true;
+    } else {
+      continue;
+    }
+  }
+
+  return false;
 }

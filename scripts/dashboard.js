@@ -3,11 +3,14 @@ const pageTitle = document.querySelector(".page-title");
 const profileButton = document.querySelector(".profile-button");
 const menuIcon = document.getElementById("menu-icon");
 
-const userData = JSON.parse(localStorage.getItem("user"));
+const users = JSON.parse(localStorage.getItem("users"));
+const currentUserEmail = localStorage.getItem("currentUserEmail");
 
-if (userData) {
-  pageTitle.textContent = `Welcome back, ${userData.username} 👋`;
-  const username = userData.username;
+const currentUser = getCurrentUserObject();
+
+if (users) {
+  pageTitle.textContent = `Welcome back, ${currentUser.username} 👋`;
+  const username = currentUser.username;
   profileButton.textContent = username.charAt(0).toUpperCase();
 } else {
   window.location.href = "index.html";
@@ -16,5 +19,14 @@ if (userData) {
 menuIcon.addEventListener("click", showMenu);
 
 function showMenu() {
-  nav.classList.toggle("open")
+  nav.classList.toggle("open");
+}
+
+function getCurrentUserObject() {
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === currentUserEmail) {
+      return users[i];
+    }
+  }
+
 }

@@ -1,9 +1,11 @@
+import { users } from "./users.js";
+
 const form = document.querySelector("form");
 const username = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
-const passwordMatchError = document.querySelector(".password-match-error");
+const inputErrorMessage = document.querySelectorAll(".input-error-message");
 const signUpButton = document.getElementById("sign-up-button");
 
 form.addEventListener("submit", (e) => {
@@ -14,9 +16,23 @@ form.addEventListener("submit", (e) => {
   const confirmPasswordValue = confirmPassword.value.trim();
 
   if (passwordValue !== confirmPasswordValue) {
-    passwordMatchError.style.visibility = "visible";
-    confirmPassword.classList.add("mismatch-password");
+    inputErrorMessage[1].style.visibility = "visible";
+    confirmPassword.classList.add("inputError");
     return;
+  }
+
+  let emailExist;
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === emailValue) {
+      emailExist = true;
+      break;
+    }
+  }
+
+  if (emailExist) {
+    inputErrorMessage[0].style.visibility = "visible";
+    email.classList.add("inputError");
   } else {
     const userData = {
       username: usernameValue,
@@ -25,6 +41,10 @@ form.addEventListener("submit", (e) => {
       confirmPassword: confirmPasswordValue,
     };
 
+    users.push(userData);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
     username.value = "";
     email.value = "";
     password.value = "";
@@ -32,9 +52,7 @@ form.addEventListener("submit", (e) => {
 
     signUpButton.textContent = "Signing up...";
     signUpButton.disabled = true;
-    signUpButton.style.opacity = "0.6";
-
-    localStorage.setItem("user", JSON.stringify(userData));
+    signUpButton.style.opacity = "0.8";
 
     setTimeout(() => {
       signUpButton.textContent = "Signed up!";

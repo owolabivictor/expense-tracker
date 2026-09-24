@@ -18,7 +18,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="styles/login-signUp.css" />
-    <script src="scripts/login.js" defer></script>
+    <script type="module" src="scripts/login.js" defer></script>
 
     <title>Expense Tracker - Login</title>
   </head>
@@ -47,13 +47,13 @@
     <div class="overlay"></div>
     <div class="error-container">
       <div class="cancel-container">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-exclamation-triangle"></i>
       </div>
 
       <h1 class="error-title">Account not found</h1>
       <div class="error-button-container">
         <button class="cancel error-button">Cancel</button>
-        <button class="sign-up error-button">Sign Up</button>
+        <button class="sign-up-alert error-button">Sign Up</button>
       </div>
     </div>
 
